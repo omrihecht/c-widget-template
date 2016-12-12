@@ -1,0 +1,137 @@
+
+@import 'mixins';
+
+html{ font-size:16px; }
+body{ direction:rtl; font-family:'Aa_TypoCellcom', Arial; }
+.en{ font-family:Arial; direction:ltr; }
+
+span{ display:inline; }
+
+.main-holder{ position:absolute; top:0; right:0; width:100%; height:100%; background-color:black; }
+
+.creative{ position:absolute; width:100%; top:60px; background-color:green; @include calc(height,'100% - 165px');
+  .desktop-element{ display:block; margin:0 auto; height:100%; }
+  .mobile-element{ display:none; }
+}
+
+.footer{ position:absolute; z-index:10; bottom:0; width:100%; text-align:center;
+  .form-holder.open{ display:inline-block; }
+  .form-holder{ display:none;
+    .form-title{ display:inline-block; vertical-align:top; text-align:right; color:white; margin-left:10px; line-height:1;
+      h2{ font-weight:600; margin-bottom:6px; }
+    }
+    form{ display:inline-block; vertical-align:top;
+      .form-field{ display:inline-block; position:relative; width:190px; height:40px; margin-left:2px;
+        input , select{ display:block; width:100%; height:100%; box-sizing:border-box; padding:5px; font-size:inherit; font-family:Arial; -webkit-appearance:none; appearance:none; background-color:white; border-radius:3px; }
+        option{ font-family:Arial; font-size:inherit; }
+        label{ position:absolute; line-height:40px; top:0; z-index:4; pointer-events:none; right:5px; color:#333; }
+        input:focus + label , textarea:focus + label{ display:none; }
+        input.not-empty + label , textarea.not-empty + label{ display:none; }
+        input.required , select.required{ border:1px solid red; }
+        .arrow{ display:block; position:absolute; top:16px; left:3px; height:8px; pointer-events:none; }
+      }
+      .phone-holder{ display:inline-block; vertical-align:middle;
+        .phone{ width:100px; margin-left:0; }
+        .phone-prfx{ width:70px; }
+      }
+      .color-holder{ width:120px; }
+      .send-btn{ font-size:inherit; font-family:inherit; width:80px; height:40px; border-radius:3px; background-color:#f40077; font-weight:600; color:white; cursor:pointer; }
+      .error{ color:red; font-size:.8rem; text-align:right; }
+    }
+    form.callme-form .phone-holder .phone{ width:170px; }
+    .loading{ display:none; height:50px; margin:0 auto; }
+    .thanks{ display:none; text-align:center; color:white; font-weight:600; }
+
+    .mobile-element{ display:none; }
+  }
+
+  .form-holder.loading{
+    .form-title, form{ display:none; }
+    .loading{ display:block; }
+  }
+
+  .form-holder.thanks{
+    .form-title, form{ display:none; }
+    .thanks{ display:block; }
+  }
+
+  .disclaimer{ color:white; font-size:.9rem; line-height:1; text-align:right; width:90%; margin:15px auto 5px; }
+}
+
+@media screen and (max-aspect-ratio: 13/7){
+
+}
+
+@media screen and (max-height: 600px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+  html{ font-size:13px; }
+  body{ line-height:1; }
+
+  .main-holder{ background-image:none; height:500px; overflow:hidden; }
+
+  .creative{ position:relative; width:100%; top:auto; margin-top:35px; height:auto;
+    .desktop-element{ display:none; }
+    .mobile-element{ display:block; width:230px; margin:0 auto; }
+  }
+
+  body.lead .creative{
+    .mobile-element{ width:195px; }
+  }
+
+  .footer{
+    .form-holder.open{ display:block; }
+    .form-holder{ display:none;
+      .form-title{ display:block; margin:0 auto; width:300px;
+        h2{ font-weight:600; margin-bottom:4px; }
+      }
+
+      .call-btn{ font-size:1.4rem; width:100%; width:300px; padding:12px 0; margin:10px auto 30px; background-color:#f40077; color:white; font-weight:600; line-height:1; text-decoration:none; border-radius:3px;
+        img{ display:inline-block; vertical-align:top; height:18px; margin-left:5px; }
+        span{ display:inline-block; vertical-align:middle; }
+      }
+
+      .loading{ display:none; }
+      .thanks{ display:none; }
+
+      .mobile-element{ display:block; }
+      .desktop-element{ display:none; }
+    }
+    .form-holder.callme .form-title h3{ display:none; }
+
+    .form-holder.lead{
+      form{ display:block; width:300px; margin:0 auto;
+        .form-field{ display:block; float:right; height:25px; margin-left:0; margin-bottom:3px;
+          label{ line-height:25px; }
+          .arrow{ top:12px; height:5px; }
+        }
+        .name-holder{ width:100%; }
+        .phone-holder{ display:block; float:right;
+          .phone{ width:216px; margin-left:4px; }
+          .phone-prfx{ width:80px; }
+        }
+        .model-holder{ width:176px; margin-left:4px; }
+        .color-holder{ width:120px; }
+        .send-btn{ width:100%; height:25px; }
+        .error{ font-size:.8rem; text-align:right; margin-top:4px; }
+      }
+      form.callme-form .phone-holder .phone{ width:170px; }
+    }
+
+    .form-holder.loading{
+      .form-title, form{ display:none; }
+      .loading{ display:block; margin-bottom:50px; }
+    }
+
+    .form-holder.thanks{
+      .form-title, form{ display:none; }
+      .thanks{ display:block; margin-bottom:50px; font-size:1.2rem; }
+    }
+
+    .disclaimer{ font-size:.8rem; margin:5px auto 2px; width:98%; }
+  }
+
+}

@@ -1,0 +1,173 @@
+/* Scss Document */
+
+@mixin background-size($val) {
+    -webkit-background-size: $val;
+    -moz-background-size: $val;
+    -o-background-size: $val;
+    background-size: $val;
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
+
+@mixin calc($property, $expression) { 
+  #{$property}: -webkit-calc(#{$expression}); 
+  #{$property}: calc(#{$expression}); 
+} 
+
+@mixin transition( $speed ){
+	-webkit-transition: all $speed ease-in-out;
+	-moz-transition:    all $speed ease-in-out;
+	-o-transition:      all $speed ease-in-out;
+	transition:         all $speed ease-in-out;	
+}
+
+@mixin transition-transform( $speed ){
+	-webkit-transition: transform $speed ease-in-out;
+	-moz-transition:    transform $speed ease-in-out;
+	-o-transition:      transform $speed ease-in-out;
+	transition:         transform $speed ease-in-out;	
+}
+
+@mixin remove-transition(){
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+
+@mixin transition-delay( $time ){
+	-webkit-transition-delay:   $time;
+	-moz-transition-delay:      $time;
+	-o-transition-delay:        $time;
+	transition-delay:           $time;
+}
+
+@mixin transform( $string ){
+	-webkit-transform: $string;
+	-moz-transform:    $string;
+	-ms-transform:     $string;
+	-o-transform:      $string;
+	transform:         $string;
+}
+
+@mixin transform-origin( $x , $y ){
+	-webkit-transform-origin: $x $y;
+	-moz-transform-origin: $x $y;
+	-o-transform-origin: $x $y;
+	-ms-transform-origin: $x $y;
+	transform-origin: $x $y;
+}
+
+@mixin skew( $val ){
+    -moz-transform: scale(1) rotate(0deg) translate(0px, 0px) skew($val, 0deg);
+    -webkit-transform: scale(1) rotate(0deg) translate(0px, 0px) skew($val, 0deg);
+    -o-transform: scale(1) rotate(0deg) translate(0px, 0px) skew($val, 0deg);
+    -ms-transform: scale(1) rotate(0deg) translate(0px, 0px) skew($val, 0deg);
+    transform: scale(1) rotate(0deg) translate(0px, 0px) skew($val, 0deg);	
+}
+
+
+@-webkit-keyframes infinite-spinning{
+  from{ transform: rotate(0deg); }
+to{ transform: rotate(360deg); }		
+}
+@-moz-keyframes infinite-spinning{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }				
+}
+@-o-keyframes infinite-spinning{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }				
+}
+@keyframes infinite-spinning{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }				
+}
+
+
+@-webkit-keyframes loading-opacity{
+  from{ opacity: 0; }
+  to{ opacity: 1; }		
+}
+@-moz-keyframes loading-opacity{
+  from{ opacity: 0; }
+  to{ opacity: 1; }				
+}
+@-o-keyframes loading-opacity{
+  from{ opacity: 0; }
+  to{ opacity: 1; }				
+}
+@keyframes loading-opacity{
+  from{ opacity: 0; }
+  to{ opacity: 1; }					
+}
+
+@mixin bounce-anim{
+	-webkit-animation: bounce 0.4s; /* Safari 4+ */
+	-moz-animation:    bounce 0.4s; /* Fx 5+ */
+	-o-animation:         bounce 0.4s; /* Opera 12+ */
+	animation:              bounce 0.4s; /* IE 10+, Fx 29+ */	
+}
+
+@-webkit-keyframes bounce {
+	0%   { @include transform( scale(0.7) ); }
+	40%   { @include transform( scale(1.1) ); }
+	60%   { @include transform( scale(0.95) ); }
+	80%   { @include transform( scale(1.05) ); }
+	100% { @include transform( scale(1) ); }
+}
+@-moz-keyframes bounce {
+	0%   { @include transform( scale(0.7) ); }
+	40%   { @include transform( scale(1.1) ); }
+	60%   { @include transform( scale(0.95) ); }
+	80%   { @include transform( scale(1.05) ); }
+	100% { @include transform( scale(1) ); }
+}
+@-o-keyframes bounce {
+	0%   { @include transform( scale(0.7) ); }
+	40%   { @include transform( scale(1.1) ); }
+	60%   { @include transform( scale(0.95) ); }
+	80%   { @include transform( scale(1.05) ); }
+	100% { @include transform( scale(1) ); }
+}
+@keyframes bounce {
+	0%   { @include transform( scale(0.7) ); }
+	40%   { @include transform( scale(1.1) ); }
+	60%   { @include transform( scale(0.95) ); }
+	80%   { @include transform( scale(1.05) ); }
+	100% { @include transform( scale(1) ); }
+}
+
+@mixin arrow-move-anim{
+	-webkit-animation: infinite arrow-move 1s; /* Safari 4+ */
+	-moz-animation:    infinite arrow-move 1s; /* Fx 5+ */
+	-o-animation:         infinite arrow-move 1s; /* Opera 12+ */
+	animation:              infinite arrow-move 1s; /* IE 10+, Fx 29+ */	
+}
+
+@-webkit-keyframes arrow-move {
+	0%   { @include transform( translate3d( 0 , -5px , 0 ) ); }
+	50% { @include transform( translate3d( 0 , 8px , 0 ) ); }
+	100% { @include transform( translate3d( 0 , -5px , 0 ) ); }
+}
+@-moz-keyframes arrow-move {
+	0%   { @include transform( translate3d( 0 , -5px , 0 ) ); }
+	50% { @include transform( translate3d( 0 , 8px , 0 ) ); }
+	100% { @include transform( translate3d( 0 , -5px , 0 ) ); }
+}
+@-o-keyframes arrow-move {
+	0%   { @include transform( translate3d( 0 , -5px , 0 ) ); }
+	50% { @include transform( translate3d( 0 , 8px , 0 ) ); }
+	100% { @include transform( translate3d( 0 , -5px , 0 ) ); }
+}
+@keyframes arrow-move {
+	0%   { @include transform( translate3d( 0 , -5px , 0 ) ); }
+	50% { @include transform( translate3d( 0 , 8px , 0 ) ); }
+	100% { @include transform( translate3d( 0 , -5px , 0 ) ); }
+}
